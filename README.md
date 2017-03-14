@@ -1,10 +1,10 @@
 # Microgateway-demo
 Learning exercise of Apigee edge microgateway
 
-## keywords
+## Keywords
 Apigee public edge, docker
 
-## what we learn ?
+## What we learn ?
 - How to use microgateway with apigee public edge
 - How to run microgateway in docker 
 
@@ -42,11 +42,12 @@ The output will include important information about your configuration, it will 
 It’ll also display your configuration’s credentials required for start up:
 
 key: 0c4449144dc894f68913a7385dbae92f64df915ce2e76a2ff45cbdb5fb3581
+
 secret: 75a10ceb40bd31068ae4a334198566e1f0a4f3f84536100e935b9e85fbfa
 
 ### Step - 2
 
-save these credentials to a file. **eg**: ~/.edgemicro/{org}-{env}-list.yaml
+save these credentials to a file. **eg**: ~/.edgemicro/{org}-{env}-env.list
 
 ```
 EDGEMICRO_KEY=0c4449144dc894f68913a7385dbae92f64df9157ce2e76a2ff45cbd
@@ -55,5 +56,32 @@ EDGEMICRO_ORG=<org>
 EDGEMICRO_ENV=<env>
 ```
 
-these detailes will be used by edgemicro to boot up.
+these will be set as environment variables for the edgemicro during boot up.
 
+## run microedge
+### Step - 1
+pull docker image
+```
+docker pull ndietz/emgw
+```
+
+### step - 2
+run the following command to start edge microgateway
+```
+docker run --env-file ./<org>-<env>-env.list  -p 8000:8000 -v {directory containing configuration}:/root/.edgemicro -d -t ndietz/emgw
+```
+
+{directory containing configuration} will be usually ~/.edgemicro
+
+## test
+### Step - 1
+check if the container is running
+```
+docker ps
+```
+
+### Step - 2
+make any api call to the proxy
+```
+curl -i localhost:8000/myapi
+```
