@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="1" name="edgemicro_httpbin">
+    <Basepaths>/edgemicro_httpbin</Basepaths>
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1488346552329</CreatedAt>
+    <CreatedBy>defaultUser</CreatedBy>
+    <Description>httpbin proxy</Description>
+    <DisplayName>edgemicro_httpbin</DisplayName>
+    <LastModifiedAt>1488346552329</LastModifiedAt>
+    <LastModifiedBy>defaultUser</LastModifiedBy>
+    <Policies/>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources/>
+    <Spec></Spec>
+    <TargetServers/>
+    <TargetEndpoints>
+        <TargetEndpoint>default</TargetEndpoint>
+    </TargetEndpoints>
+</APIProxy>
