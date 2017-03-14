@@ -20,16 +20,16 @@ Apigee Edge Microgateway (MGW) is a lightweight API gateway solution that provid
 
 you also need access to an Apigee edge paid org. Edge Microgateway does not work with Free Trial organizations. If you have a Trial org and want to use Edge Microgateway, contact Apigee sales for more information. 
 
-## Installation
-### Step - 1
+## 1. Installation
+### 1.1
 #### Install Docker Nodejs
 
 - refer [this](https://docs.docker.com/engine/installation/) to install docker.
 - refer [this](https://nodejs.org/en/download/) to install nodejs.
 - refer [this](http://docs.apigee.com/microgateway/latest/installing-edge-microgateway) to install microgatway.
 
-## Configuration
-### Step - 1
+## 2. Configuration
+### 2.1
 #### Configure microgateway
 run the folling command
 
@@ -45,7 +45,7 @@ key: 0c4449144dc894f68913a7385dbae92f64df915ce2e76a2ff45cbdb5fb3581
 
 secret: 75a10ceb40bd31068ae4a334198566e1f0a4f3f84536100e935b9e85fbfa
 
-### Step - 2
+### 2.2
 
 save these credentials to a file. **eg**: ~/.edgemicro/{org}-{env}-env.list
 
@@ -58,14 +58,14 @@ EDGEMICRO_ENV=<env>
 
 these will be set as environment variables for the edgemicro during boot up.
 
-## run microedge
-### Step - 1
+## 3. Run microedge
+### 3.1
 pull docker image
 ```
 docker pull ndietz/emgw
 ```
 
-### step - 2
+### 3.2
 run the following command to start edge microgateway
 ```
 docker run --env-file ./<org>-<env>-env.list  -p 8000:8000 -v {directory containing configuration}:/root/.edgemicro -d -t ndietz/emgw
@@ -73,14 +73,14 @@ docker run --env-file ./<org>-<env>-env.list  -p 8000:8000 -v {directory contain
 
 {directory containing configuration} will be usually ~/.edgemicro
 
-## test
-### Step - 1
+## 4. Test
+### 4.1
 check if the container is running
 ```
 docker ps
 ```
 
-### Step - 2
+### 4.2
 make any api call to the proxy
 ```
 curl -i localhost:8000/myapi
