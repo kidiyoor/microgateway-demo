@@ -77,6 +77,32 @@ oauth:
   allowInvalidAuthorization: false
 ```
 
+## 3. Creating proxy, product, developer, app
+### 3.1
+#### Create proxy
+We have created a simple proxy which targets to http://httpbin.org.
+
+Let's use this proxy for the demo.
+
+Please zip the **apiproxy** folder found in this repo.
+
+Create a proxy from the edge ui https://enterprise.apigee.com/platform/{org-name}/apis, make sure you select import from proxy bundle while creating the proxy.
+
+### 3.2
+#### Create developer
+Create a product https://enterprise.apigee.com/platform/{org-name}/developers
+
+### 3.3
+#### Create product
+Create a product https://enterprise.apigee.com/platform/{org-name}/products
+
+Make sure you select access type as public and add the newly created proxy in this product.
+
+### 3.3
+#### Create app
+Create a app https://enterprise.apigee.com/platform/{org-name}/app
+
+Make sure you add the product just created.
 
 ## 3. Run microgateway
 ### 3.1
