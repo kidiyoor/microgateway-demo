@@ -67,13 +67,13 @@ Open ~/.edgemicro/{org}-{env}-config.yaml
 Find the following section in the config file
 ```
 oauth:
-  allowNoAuthorization: true
+  allowNoAuthorization: false
   allowInvalidAuthorization: false
 ```
 Change **allowNoAuthorization** to flase. Finally it should look like follow
 ```
 oauth:
-  allowNoAuthorization: false
+  allowNoAuthorization: true
   allowInvalidAuthorization: false
 ```
 
