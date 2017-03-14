@@ -31,7 +31,7 @@ you also need access to an Apigee edge paid org. Edge Microgateway does not work
 ## 2. Configuration
 ### 2.1
 #### Configure microgateway
-run the folling command
+run the following command
 
 ``` 
 edgemicro configure -o {organization} -e {environment} -u {Apigee account username}
@@ -46,7 +46,7 @@ key: 0c4449144dc894f68913a7385dbae92f64df915ce2e76a2ff45cbdb5fb3581
 secret: 75a10ceb40bd31068ae4a334198566e1f0a4f3f84536100e935b9e85fbfa
 
 ### 2.2
-
+#### creating env file
 save these credentials to a file. **eg**: ~/.edgemicro/{org}-{env}-env.list
 
 ```
@@ -58,14 +58,35 @@ EDGEMICRO_ENV=<env>
 
 these will be set as environment variables for the edgemicro during boot up.
 
-## 3. Run microedge
+### 2.3
+#### Disabling oauth
+
+For the demo purpose we shall disable oauth using config file that got generated during configuration phase.
+
+Open ~/.edgemicro/{org}-{env}-config.yaml
+Find the following section in the config file
+```
+oauth:
+  allowNoAuthorization: true
+  allowInvalidAuthorization: false
+```
+Change **allowNoAuthorization** to flase. Finally it should look like follow
+```
+oauth:
+  allowNoAuthorization: false
+  allowInvalidAuthorization: false
+```
+
+
+## 3. Run microgateway
 ### 3.1
-pull docker image
+#### pull docker image
 ```
 docker pull ndietz/emgw
 ```
 
 ### 3.2
+#### start
 run the following command to start edge microgateway
 ```
 docker run --env-file ./<org>-<env>-env.list  -p 8000:8000 -v {directory containing configuration}:/root/.edgemicro -d -t ndietz/emgw
@@ -75,13 +96,26 @@ docker run --env-file ./<org>-<env>-env.list  -p 8000:8000 -v {directory contain
 
 ## 4. Test
 ### 4.1
-check if the container is running
+Check if the container is running
 ```
 docker ps
 ```
 
 ### 4.2
-make any api call to the proxy
+Make any api call to the proxy
 ```
 curl -i localhost:8000/myapi
+```
+
+## 5. Stop microgateway
+### 5.1
+Get the container id
+```
+docker ps
+```
+
+### 5.2
+Run the kill command
+```
+docker kill {container_id}
 ```
