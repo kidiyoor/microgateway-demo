@@ -2,15 +2,14 @@
 Learning exercise of Apigee edge microgateway
 
 ## Keywords
-Apigee public edge, microgateway, nodejs, oauth, spikearrest, custom plugin
+Apigee public edge, microgateway, nodejs, oauth, spikearrest, analytics
 
 ## What we learn ?
 - How to use microgateway with apigee public edge
 - PART - 1 : How to setup microgateway for a simple proxy
 - PART - 2 : How to use oauth for api calls in microgateway
 - PART - 3 : How to use existing plugins for microgateway
-- PART - 4 : How to write custom plugins for microgateway
-
+- PART - 4 : Analytics
 
 ## What is microgateway ?
 
@@ -355,3 +354,14 @@ You should see error message as follow when the limit is reached
 ```
 {"message":"SpikeArrest engaged","status":503}
 ```
+
+# PART - 4
+
+### 1. Analytics
+Login to the edge UI
+
+Navigate to Analytics > Proxy Performance
+
+Select your proxy
+
+The graph shows you information about the the proxy's traffic patterns, such as total traffic, average response time, average target response time, and more.
