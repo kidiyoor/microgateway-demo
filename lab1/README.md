@@ -82,6 +82,25 @@ Make any api call to the proxy
 ```
 curl http://localhost:8000/{proxy-name}/?name=gautham
 ```
+output:
+```
+{
+  "args": {
+    "name": "gautham"
+  },
+  "headers": {
+    "Accept": "*/*",
+    "Host": "httpbin.org",
+    "User-Agent": "curl/7.51.0",
+    "Via": "1.1 localhost",
+    "X-Authorization-Claims": "eyJzY29wZXMiOltdfQ==",
+    "X-Forwarded-Host": "localhost:8000",
+    "X-Request-Id": "9a122a60-0968-11e7-931c-799bda579a61.d7a9b950-0969-11e7-931c-799bda579a61"
+  },
+  "origin": "::1, 111.93.155.244",
+  "url": "http://localhost:8000/get?name=gautham"
+}
+```
 
 ## 6. Stop microgateway
 ```
@@ -140,7 +159,7 @@ Create a app https://enterprise.apigee.com/platform/{org-name}/app
 Make sure you add the product just created.
 
 ## 3. Re-start or Reload the microgateway
-Press ** CTRL C ** to stop the microgateway and run the start command as follow -  
+Press **CTRL C** to stop the microgateway and run the start command as follow -  
 ```
 edgemicro start -o {organization} -e {environment} -k {key} -s {secret}
 ```
@@ -178,9 +197,24 @@ you will get a token as follow
 ```
 curl -H 'Authorization: Bearer {token}' http://localhost:8000/{proxy-name}/?name=gautham
 ```
-This call shall fail will 
+This call shall pass with
 ```
-{"error":"missing_authorization","error_description":"Missing Authorization header"}
+{
+  "args": {
+    "name": "gautham"
+  },
+  "headers": {
+    "Accept": "*/*",
+    "Host": "httpbin.org",
+    "User-Agent": "curl/7.51.0",
+    "Via": "1.1 localhost",
+    "X-Authorization-Claims": "eyJzY29wZXMiOltdfQ==",
+    "X-Forwarded-Host": "localhost:8000",
+    "X-Request-Id": "9a122a60-0968-11e7-931c-799bda579a61.d7a9b950-0969-11e7-931c-799bda579a61"
+  },
+  "origin": "::1, 111.93.155.244",
+  "url": "http://localhost:8000/get?name=gautham"
+}
 ```
 
 You need to pass valid credentials from the app you created to make the call.
