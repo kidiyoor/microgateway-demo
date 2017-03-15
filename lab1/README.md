@@ -2,7 +2,7 @@
 Learning exercise of Apigee edge microgateway
 
 ## Keywords
-Apigee public edge, microgateway, nodejs, oauth, spikearrest, analytics
+Apigee public edge, microgateway, oauth, spikearrest, analytics
 
 ## What we learn ?
 - How to use microgateway with apigee public edge
@@ -10,6 +10,8 @@ Apigee public edge, microgateway, nodejs, oauth, spikearrest, analytics
 - PART - 2 : How to use oauth for api calls in microgateway
 - PART - 3 : How to use existing plugins for microgateway
 - PART - 4 : Analytics
+
+Advanced learning : How to create custom plugins
 
 ## What is microgateway ?
 
