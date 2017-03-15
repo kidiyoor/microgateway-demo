@@ -21,8 +21,6 @@ Apigee Edge Microgateway (MGW) is a lightweight API gateway solution that provid
 you also need access to an Apigee edge paid org. Edge Microgateway does not work with Free Trial organizations. If you have a Trial org and want to use Edge Microgateway, contact Apigee sales for more information. 
 
 ## 1. Installation
-### 1.1 Install Docker Nodejs
-
 - refer [this](https://docs.docker.com/engine/installation/) to install docker.
 - refer [this](https://nodejs.org/en/download/) to install nodejs.
 - refer [this](http://docs.apigee.com/microgateway/latest/installing-edge-microgateway) to install microgatway.
@@ -123,7 +121,26 @@ docker ps
 ### 5.2
 Make any api call to the proxy
 ```
-curl -i localhost:8000/myapi
+curl http://localhost:8000/{proxy-name}/?name=gautham
+```
+output:
+```
+{
+  "args": {
+    "name": "gautham"
+  },
+  "headers": {
+    "Accept": "*/*",
+    "Host": "httpbin.org",
+    "User-Agent": "curl/7.51.0",
+    "Via": "1.1 localhost",
+    "X-Authorization-Claims": "eyJzY29wZXMiOltdfQ==",
+    "X-Forwarded-Host": "localhost:8000",
+    "X-Request-Id": "9a122a60-0968-11e7-931c-799bda579a61.d7a9b950-0969-11e7-931c-799bda579a61"
+  },
+  "origin": "::1, 111.93.155.244",
+  "url": "http://localhost:8000/get?name=gautham"
+}
 ```
 
 ## 6. Stop microgateway
