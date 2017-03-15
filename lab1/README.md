@@ -318,7 +318,7 @@ headers:
   x-response-time: true
   via: true
 oauth:
-  allowNoAuthorization: false
+  allowNoAuthorization: true
   allowInvalidAuthorization: false
   verify_api_key_url: 'https://{organization}-{environemnt}.apigee.net/edgemicro-auth/verifyApiKey'
 analytics:
@@ -328,5 +328,30 @@ spikearrest:
   timeUnit: minute
   allow: 5
   buffersize: 0
+...
 ```
 
+## 2. Re-start or Reload the microgateway
+Press **CTRL C** to stop the microgateway and run the start command as follow -  
+```
+edgemicro start -o {organization} -e {environment} -k {key} -s {secret}
+```
+or
+
+Run the following command - 
+```
+edgemicro reload -o {organization} -e {environment} -k {key} -s {secret}
+```
+
+
+## 3. Make API calls
+```
+curl http://localhost:8000/{proxy-name}/?name=gautham
+```
+
+Try hitting the api with frequency > 10TPS
+
+You should see error message as follow when the limit is reached
+```
+{"message":"SpikeArrest engaged","status":503}
+```
