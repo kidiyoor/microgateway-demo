@@ -20,8 +20,6 @@ you also need access to an Apigee edge paid org. Edge Microgateway does not work
 
 ## 1. Installation
 ### 1.1 Install Docker Nodejs
-
-- refer [this](https://docs.docker.com/engine/installation/) to install docker.
 - refer [this](https://nodejs.org/en/download/) to install nodejs.
 - refer [this](http://docs.apigee.com/microgateway/latest/installing-edge-microgateway) to install microgatway.
 
