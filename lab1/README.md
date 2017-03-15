@@ -19,7 +19,6 @@ Apigee Edge Microgateway (MGW) is a lightweight API gateway solution that provid
 you also need access to an Apigee edge paid org. Edge Microgateway does not work with Free Trial organizations. If you have a Trial org and want to use Edge Microgateway, contact Apigee sales for more information. 
 
 ## 1. Installation
-### 1.1 Install Docker Nodejs
 - refer [this](https://nodejs.org/en/download/) to install nodejs.
 - refer [this](http://docs.apigee.com/microgateway/latest/installing-edge-microgateway) to install microgatway.
 
@@ -41,7 +40,7 @@ secret: 75a10ceb40bd31068ae4a334198566e1f0a4f3f84536100e935b9e85fbfa
 
 Make note of these credentials
 
-### 2.3 Disabling oauth
+### 2.2 Disabling oauth
 
 For the demo purpose we shall disable oauth using config file that got generated during configuration phase.
 
@@ -60,7 +59,6 @@ oauth:
 ```
 
 ## 3. Creating proxy
-### 3.1 Create proxy
 We have created a simple proxy which targets to http://httpbin.org.
 
 Let's use this proxy for the demo.
@@ -72,7 +70,6 @@ Create a proxy from the edge ui https://enterprise.apigee.com/platform/{org-name
 - make sure you select import from proxy bundle while creating the proxy.
 
 ## 4. Run microgateway
-### 4.1 Start
 Run the following command to start edge microgateway
 ```
 edgemicro start -o {organization} -e {environment} -k {key} -s {secret}
@@ -81,14 +78,12 @@ edgemicro start -o {organization} -e {environment} -k {key} -s {secret}
 {key} and {secret} is obtained from the output of configuration command.
 
 ## 5. Test
-### 5.1
 Make any api call to the proxy
 ```
 curl http://localhost:8000/{proxy-name}/?name=gautham
 ```
 
 ## 6. Stop microgateway
-### 6.1
 ```
 Ctrl C
 ```
@@ -145,7 +140,6 @@ Create a app https://enterprise.apigee.com/platform/{org-name}/app
 Make sure you add the product just created.
 
 ## 3. Re-start or Reload the microgateway
-### 3.1 Restart
 Press ** CTRL C ** to stop the microgateway and run the start command as follow -  
 ```
 edgemicro start -o {organization} -e {environment} -k {key} -s {secret}
