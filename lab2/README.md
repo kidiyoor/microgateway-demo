@@ -81,7 +81,9 @@ Let's use this proxy for the demo.
 
 Please zip the **apiproxy** folder found in this folder.
 
-Create a proxy from the edge ui https://enterprise.apigee.com/platform/{org-name}/apis, make sure you select import from proxy bundle while creating the proxy.
+Create a proxy from the edge ui https://enterprise.apigee.com/platform/{org-name}/apis
+- Edge Microgateway-aware proxy names must always begin with the prefix edgemicro_. For example: edgemicro_hello 
+- make sure you select import from proxy bundle while creating the proxy.
 
 ### 3.2
 #### Create developer
