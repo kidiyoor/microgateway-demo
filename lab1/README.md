@@ -52,14 +52,14 @@ oauth:
   allowNoAuthorization: false
   allowInvalidAuthorization: false
 ```
-Change **allowNoAuthorization** to flase. Finally it should look like follow
+Change **allowNoAuthorization** to true. Finally it should look like follow
 ```
 oauth:
   allowNoAuthorization: true
   allowInvalidAuthorization: false
 ```
 
-## 3. Creating proxy, product, developer, app
+## 3. Creating proxy
 ### 3.1 Create proxy
 We have created a simple proxy which targets to http://httpbin.org.
 
@@ -70,20 +70,6 @@ Please zip the **apiproxy** folder found in this folder.
 Create a proxy from the edge ui https://enterprise.apigee.com/platform/{org-name}/apis
 - Edge Microgateway-aware proxy names must always begin with the prefix edgemicro_. For example: edgemicro_hello 
 - make sure you select import from proxy bundle while creating the proxy.
-
-### 3.2
-#### Create developer
-Create a developer https://enterprise.apigee.com/platform/{org-name}/developers
-
-### 3.3 Create product
-Create a product https://enterprise.apigee.com/platform/{org-name}/products
-
-Make sure you select access type as public and add the newly created proxy in this product.
-
-### 3.3 Create app
-Create a app https://enterprise.apigee.com/platform/{org-name}/app
-
-Make sure you add the product just created.
 
 ## 4. Run microgateway
 ### 4.1 Start
@@ -106,3 +92,39 @@ curl -i localhost:8000/myapi
 ```
 Ctrl C
 ```
+
+
+# Advanced
+
+## Configuration
+### 1. Enabling oauth
+
+We shall enable oauth using the same config file.
+
+Open ~/.edgemicro/{org}-{env}-config.yaml
+Find the following section in the config file
+```
+oauth:
+  allowNoAuthorization: true
+  allowInvalidAuthorization: false
+```
+Change **allowNoAuthorization** to flase. Finally it should look like follow
+```
+oauth:
+  allowNoAuthorization: false
+  allowInvalidAuthorization: false
+```
+## 2 Creating product, developer, app
+### 2.1 Create product
+Create a product https://enterprise.apigee.com/platform/{org-name}/products
+
+Make sure you select access type as public and add the newly created proxy in this product.
+
+### 2.2 Create developer
+Create a developer https://enterprise.apigee.com/platform/{org-name}/developers
+
+### 2.3 Create app
+Create a app https://enterprise.apigee.com/platform/{org-name}/app
+
+Make sure you add the product just created.
+
