@@ -97,13 +97,13 @@ Create a app https://enterprise.apigee.com/platform/{org-name}/app
 
 Make sure you add the product just created.
 
-## 3. Run microgateway
-### 3.1 Pull docker image
+## 4. Run microgateway
+### 4.1 Pull docker image
 ```
 docker pull ndietz/emgw
 ```
 
-### 3.2 Start
+### 4.2 Start
 run the following command to start edge microgateway
 ```
 docker run --env-file ./<org>-<env>-env.list  -p 8000:8000 -v {directory containing configuration}:/root/.edgemicro -d -t ndietz/emgw
@@ -111,27 +111,27 @@ docker run --env-file ./<org>-<env>-env.list  -p 8000:8000 -v {directory contain
 
 {directory containing configuration} will be usually ~/.edgemicro
 
-## 4. Test
-### 4.1
+## 5. Test
+### 5.1
 Check if the container is running
 ```
 docker ps
 ```
 
-### 4.2
+### 5.2
 Make any api call to the proxy
 ```
 curl -i localhost:8000/myapi
 ```
 
-## 5. Stop microgateway
-### 5.1
+## 6. Stop microgateway
+### 6.1
 Get the container id
 ```
 docker ps
 ```
 
-### 5.2
+### 6.2
 Run the kill command
 ```
 docker kill {container_id}
