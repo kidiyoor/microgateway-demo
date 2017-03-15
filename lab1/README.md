@@ -6,6 +6,10 @@ Apigee public edge, microgateway, nodejs
 
 ## What we learn ?
 - How to use microgateway with apigee public edge
+- PART - 1 : How to setup microgateway for a simple proxy
+- PART - 2 : How to use oauth for api calls in microgateway
+- PART - 3 : How to use existing plugins for microgateway
+- PART - 4 : How to write custom plugins for microgateway
 
 
 ## What is microgateway ?
@@ -17,6 +21,8 @@ Apigee Edge Microgateway (MGW) is a lightweight API gateway solution that provid
 - microgateway v2.3.x
 
 you also need access to an Apigee edge paid org. Edge Microgateway does not work with Free Trial organizations. If you have a Trial org and want to use Edge Microgateway, contact Apigee sales for more information. 
+
+# PART - 1
 
 ## 1. Installation
 - refer [this](https://nodejs.org/en/download/) to install nodejs.
@@ -108,7 +114,8 @@ Ctrl C
 ```
 
 
-# Advanced
+# PART - 2
+
 In this section we shall secure our api with oauth.
 
 ## 1. Configuration
@@ -219,3 +226,9 @@ This call shall pass with
 
 You need to pass valid credentials from the app you created to make the call.
 
+
+# PART - 3
+
+In this section we shall see how to use existing plugins for microgateway. One such existing plugin is - **spikearrest**, which we are using in this demo.
+
+more pugins can be found [here](http://docs.apigee.com/microgateway/latest/use-plugins)
