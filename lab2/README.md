@@ -66,7 +66,7 @@ oauth:
   allowNoAuthorization: false
   allowInvalidAuthorization: false
 ```
-Change **allowNoAuthorization** to flase. Finally it should look like follow
+Change **allowNoAuthorization** to true. Finally it should look like follow
 ```
 oauth:
   allowNoAuthorization: true
