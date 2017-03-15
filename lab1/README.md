@@ -2,7 +2,7 @@
 Learning exercise of Apigee edge microgateway
 
 ## Keywords
-Apigee public edge, microgateway, nodejs
+Apigee public edge, microgateway, nodejs, oauth, spikearrest, custom plugin
 
 ## What we learn ?
 - How to use microgateway with apigee public edge
@@ -53,15 +53,19 @@ For the demo purpose we shall disable oauth using config file that got generated
 Open ~/.edgemicro/{org}-{env}-config.yaml
 Find the following section in the config file
 ```
+...
 oauth:
   allowNoAuthorization: false
   allowInvalidAuthorization: false
+...
 ```
 Change **allowNoAuthorization** to true. Finally it should look like follow
 ```
+...
 oauth:
   allowNoAuthorization: true
   allowInvalidAuthorization: false
+...
 ```
 
 ## 3. Creating proxy
@@ -127,15 +131,19 @@ Open ~/.edgemicro/{org}-{env}-config.yaml
 
 Find the following section in the config file
 ```
+...
 oauth:
   allowNoAuthorization: true
   allowInvalidAuthorization: false
+...
 ```
 Change **allowNoAuthorization** to flase. Finally it should look like follow
 ```
+...
 oauth:
   allowNoAuthorization: false
   allowInvalidAuthorization: false
+...
 ```
 ### 1.2 Add oauth plugin
 
@@ -143,10 +151,12 @@ Open ~/.edgemicro/{org}-{env}-config.yaml
 
 Find the following section in the config file
 ```
+...
 plugins:
    dir: ../plugins
    sequence:
    - oauth
+...
 ```
 
 If you dont find oauth in the list of plugins, please add it.
@@ -232,3 +242,91 @@ You need to pass valid credentials from the app you created to make the call.
 In this section we shall see how to use existing plugins for microgateway. One such existing plugin is - **spikearrest**, which we are using in this demo.
 
 more pugins can be found [here](http://docs.apigee.com/microgateway/latest/use-plugins)
+
+## 1. Configure
+### 1.2 Disabling oauth
+
+For the demo purpose we shall disable oauth
+
+Open ~/.edgemicro/{org}-{env}-config.yaml
+Find the following section in the config file
+```
+...
+oauth:
+  allowNoAuthorization: false
+  allowInvalidAuthorization: false
+...
+```
+Change **allowNoAuthorization** to true. Finally it should look like follow
+```
+oauth:
+  allowNoAuthorization: true
+  allowInvalidAuthorization: false
+```
+
+### 1.2 Add spikearrest plugin
+
+Open ~/.edgemicro/{org}-{env}-config.yaml
+
+Find the following section in the config file
+```
+...
+plugins:
+   dir: ../plugins
+   sequence:
+   - oauth
+...
+```
+
+Add spikearrest to the plugin list, before oauth (ordering is important)
+
+The config file would look like
+```
+...
+plugins:
+   dir: ../plugins
+   sequence:
+   - spikearrest
+   - oauth
+...
+```
+
+### 1.3 Configure spikearrest plugin
+
+Open ~/.edgemicro/{org}-{env}-config.yaml
+
+Add the following block at the end of the file
+```
+...
+spikearrest:
+  timeUnit: minute   
+  allow: 5   
+  buffersize: 0 
+...
+```
+Finally the config file would look like
+```
+...
+  plugins:
+    sequence:
+      - oauth
+      - spikearrest
+headers:
+  x-forwarded-for: true
+  x-forwarded-host: true
+  x-request-id: true
+  x-response-time: true
+  via: true
+oauth:
+  allowNoAuthorization: false
+  allowInvalidAuthorization: false
+  verify_api_key_url: 'https://{organization}-{environemnt}.apigee.net/edgemicro-auth/verifyApiKey'
+analytics:
+  uri: >-
+    https://edgemicroservices-us-east-1.apigee.net/edgemicro/axpublisher/organization/{organization}/environment/{environment}
+spikearrest:
+  timeUnit: minute
+  allow: 5
+  buffersize: 0
+```
+
