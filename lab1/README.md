@@ -65,7 +65,7 @@ We have created a simple proxy which targets to http://httpbin.org.
 
 Let's use this proxy for the demo.
 
-Please zip the **apiproxy** folder found in this repo.
+Please zip the **apiproxy** folder found in this folder.
 
 Create a proxy from the edge ui https://enterprise.apigee.com/platform/{org-name}/apis, make sure you select import from proxy bundle while creating the proxy.
 
