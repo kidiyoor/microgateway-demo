@@ -60,15 +60,19 @@ For the demo purpose we shall disable oauth using config file that got generated
 Open ~/.edgemicro/{org}-{env}-config.yaml
 Find the following section in the config file
 ```
+...
 oauth:
   allowNoAuthorization: false
   allowInvalidAuthorization: false
+...
 ```
 Change **allowNoAuthorization** to true. Finally it should look like follow
 ```
+...
 oauth:
   allowNoAuthorization: true
   allowInvalidAuthorization: false
+...
 ```
 
 ## 3. Creating proxy, product, developer, app
