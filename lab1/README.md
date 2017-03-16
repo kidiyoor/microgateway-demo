@@ -370,4 +370,4 @@ The graph shows you information about the the proxy's traffic patterns, such as 
 
 # Advanced
 
-This topic is intended for developers who wish extend Edge Microgateway features by writing custom plugins. If you wish to write a new plugin, experience with JavaScript and Node.js is required. [click me](https://github.com/kidiyoor/microgateway-demo/edit/master/lab3/README.md)
+This topic is intended for developers who wish extend Edge Microgateway features by writing custom plugins. If you wish to write a new plugin, experience with JavaScript and Node.js is required. [click me](https://github.com/kidiyoor/microgateway-demo/tree/master/lab3)
