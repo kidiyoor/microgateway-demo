@@ -25,12 +25,11 @@ By default, Edge Microgateway is essentially a secure pass-through proxy that pa
 
 ## 2. Copying custom module to plugins directory
 ### 2.1 Find plugin directory
-run the following command
+run the following command, this will give you npm location
 
 ``` 
 npm config get prefix
 ```
-This will give you npm location
 ```
 cd {npm_location}/lib/node_modules/edgemicro/plugins
 ```
@@ -111,7 +110,7 @@ edgemicro reload -o {organization} -e {environment} -k {key} -s {secret}
 
 ## 5. Make API calls
 ```
-curl -X POST http://localhost:8000/{proxy-name}/post?count=2
+curl -X POST -H 'Content-type: application/json' -d '{"count": 2}' http://localhost:8000/{proxy-name}/post
 ```
 
 You should see that the count in response sould have incremented by the value you specifed in config file.
