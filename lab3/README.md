@@ -22,8 +22,6 @@ By default, Edge Microgateway is essentially a secure pass-through proxy that pa
 - Finish lab1 or lab2 (configure and install microgateway)
 
 ## 1. Writing a custom module
-In this demo we create a simple plugin which will increment 'count' variable found in POST data by the configured value.
-
 Pattern to follow when developing your own plugins.
 
 - Plugins are standard npm modules with a package.json and index.js in the root folder.
@@ -40,7 +38,9 @@ These function handlers are called on request events in Edge Microgateway.
 
 [more](http://docs.apigee.com/microgateway/latest/develop-custom-plugins) details.
 
-We already have a custom module named **increment_count** ready. The source code for the increment_count plugin can be found here -  **custom_modules/increment_count/index.js**.
+In this demo we use a simple custom plugin which will increment 'count' variable found in POST data by the configured value.
+
+We already have this custom module named **increment_count** ready. The source code for the increment_count plugin can be found here -  **custom_modules/increment_count/index.js**.
 
 ## 2. Copying custom module to plugins directory
 ### 2.1 Find plugin directory
@@ -49,10 +49,13 @@ run the following command, this will give you npm location
 ``` 
 npm config get prefix
 ```
+
+### 2.2 copy
+Please copy the increment_count(custom_modules/increment_count) directory inside this folder.
 ```
 cd {npm_location}/lib/node_modules/edgemicro/plugins
+cp -r {repo}/lab3/custom_modules/increment_count .
 ```
-Please copy the increment_count(custom_modules/increment_count) directory inside this folder.
 
 ## 3. Configuration
 ### 3.1 Add custom modules to the plugin sequence 
