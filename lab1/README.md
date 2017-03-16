@@ -11,7 +11,7 @@ Apigee public edge, microgateway, oauth, spikearrest, analytics
 - PART - 3 : How to use existing plugins for microgateway
 - PART - 4 : Analytics
 
-**Advanced learning** : How to create custom plugins ?
+**[Advanced learning](https://github.com/kidiyoor/microgateway-demo/tree/master/lab3)** : How to create custom plugins ?
 
 ## What is microgateway ?
 
