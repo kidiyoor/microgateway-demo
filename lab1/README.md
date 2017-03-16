@@ -11,7 +11,7 @@ Apigee public edge, microgateway, oauth, spikearrest, analytics
 - PART - 3 : How to use existing plugins for microgateway
 - PART - 4 : Analytics
 
-Advanced learning : How to create custom plugins
+**Advanced learning** : How to create custom plugins ?
 
 ## What is microgateway ?
 
@@ -367,3 +367,7 @@ Navigate to Analytics > Proxy Performance
 Select your proxy
 
 The graph shows you information about the the proxy's traffic patterns, such as total traffic, average response time, average target response time, and more.
+
+# Advanced
+
+This topic is intended for developers who wish extend Edge Microgateway features by writing custom plugins. If you wish to write a new plugin, experience with JavaScript and Node.js is required. [click me](https://github.com/kidiyoor/microgateway-demo/edit/master/lab3/README.md)
