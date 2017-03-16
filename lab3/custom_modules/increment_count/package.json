@@ -1,0 +1,12 @@
+{
+  "name": "edgemicro-example-plugin-increment-count",
+  "version": "0.0.1",
+  "private": true,
+  "description": "A sample plugin for Apigee Edge Microgateway that increment count varianle in request",
+  "dependencies": {
+    "debug": "^2.2.0"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}
