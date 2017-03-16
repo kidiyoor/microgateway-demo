@@ -44,7 +44,7 @@ We already have this custom module named **increment_count** ready. The source c
 
 ## 2. Copying custom module to plugins directory
 ### 2.1 Find plugin directory
-run the following command, this will give you npm location
+Run the following command, this will give you npm location
 
 ``` 
 npm config get prefix
