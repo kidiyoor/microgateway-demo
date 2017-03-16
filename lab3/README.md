@@ -2,23 +2,24 @@
 Learning exercise of Apigee edge microgateway
 
 ## Keywords
-Apigee public edge, docker
+Apigee public edge, custom modules
 
 ## What we learn ?
-- How to use microgateway with apigee public edge
-- How to run microgateway in docker 
+- How to write custom modules for microgateway
 
 
 ## What is microgateway ?
 
 Apigee Edge Microgateway (MGW) is a lightweight API gateway solution that provides developers with OAuth and API key security, analytics, spike arrest, quota, custom plugin integration, and much more all in a simple service that takes two minutes to set up. It contains 'runtime' of apigee edge that can be run close to the backend or target proximity. Microgateway enables you to use most of the apigee edge features for private traffic which flow only in internal network. Think hybrid. Its main job is to process requests and responses to and from backend services securely while asynchronously pushing valuable API execution data to Apigee Edge where it is consumed by the Edge Analytics system. [more details] (http://docs.apigee.com/microgateway/latest/overview-edge-microgateway)
 
-## Pre-requisite
-- docker
-- nodejs > v4.2.0
-- microgateway v2.3.x
+## What is an Edge Microgateway plugin?
 
-you also need access to an Apigee edge paid org. Edge Microgateway does not work with Free Trial organizations. If you have a Trial org and want to use Edge Microgateway, contact Apigee sales for more information. 
+A plugin is a Node.js module that adds functionality to Edge Microgateway. Plugin modules follow a consistent pattern and are stored in a location known to Edge Microgateway, enabling the microgateway to discover and load them automatically.
+
+By default, Edge Microgateway is essentially a secure pass-through proxy that passes requests unchanged to a target. Through plugins, you can add features to the microgateway, such as support for Apigee Edge analytics, OAuth authentication, and rate limiting features like quotas and spike arrest. [more](http://docs.apigee.com/microgateway/v21x/using-plugins-v21x) plugins.
+
+## Pre-requisite
+- Finish lab1 or lab2 (configure and install microgateway)
 
 ## 1. Installation
 ### 1.1 Install Docker Nodejs
